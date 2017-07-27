@@ -1,0 +1,1 @@
+//powerconfig     ....全局状态的module 登陆状态，权限记录全放在里面

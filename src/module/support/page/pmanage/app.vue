@@ -1,0 +1,30 @@
+<template>
+	<div id='pmanage'>
+  		<router-view></router-view>
+  	</div>
+</template>
+<script>
+	export default{
+		created(){
+			console.log('hahaha');
+			if(this.$router.currentRoute.path=='/pmanage/app'){
+				if(this.$store.state.powerconfig.personMsg.isLeader){
+					this.$router.replace({path:'/pmanage/app/index'})
+				}else{
+					this.$router.replace({path:'/pmanage/app/mindex'})
+				}
+			}
+		},
+		watch:{
+			'$route':function(to,from){
+				if(to.path=='/pmanage/app'){
+					if(this.$store.state.powerconfig.personMsg.isLeader){
+					this.$router.replace({path:'/pmanage/app/index'})
+					}else{
+						this.$router.replace({path:'/pmanage/app/mindex'})
+					}
+				}
+			}
+		}
+	}
+</script>
